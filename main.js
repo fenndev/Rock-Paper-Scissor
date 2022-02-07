@@ -65,3 +65,9 @@ function game() {
 
     determineWinner(playerWins, computerWins);
 }
+
+function playRound() {
+    let userSelection = userPlay();
+    let computerSelection = computerPlay();
+    compareSelections(userSelection, computerSelection);
+}
