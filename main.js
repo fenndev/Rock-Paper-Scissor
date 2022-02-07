@@ -53,3 +53,15 @@ END
 determineWinner(): outputs either "You won! Congratulations!" or "You lost! How unfortunate!"
 depending on whether playerWins or computerWins is higher.
 */
+
+function game() {
+    let playerWins = 0;
+    let computerWins = 0;
+    let gameRuns = 0;
+
+    do {
+        playRound();
+    } while(gameRuns <= 5);
+
+    determineWinner(playerWins, computerWins);
+}
