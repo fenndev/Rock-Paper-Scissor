@@ -163,10 +163,10 @@ function playAgain(playerWon) {
         playAgain = confirm("You lost! Want to play again?");
     }
 
-    if(playAgain == true) {
-        let playerWins = 0;
-        let computerWins = 0;
-        let gameRuns = 0;
+    if(playAgain) {
+        playerWins = 0;
+        computerWins = 0;
+        gameRuns++;
         console.clear();
         game();
     }
