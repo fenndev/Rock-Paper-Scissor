@@ -11,6 +11,7 @@ let scissorsButton = document.querySelector(".scissors");
 let playerSelectionDisplay = document.querySelector(".player-selection");
 let computerSelectionDisplay = document.querySelector(".computer-selection");
 let resultsDisplay = document.querySelector(".results");
+let pointsDisplay = document.querySelector(".point-counter")
 
 /* Event Listeners */
 
