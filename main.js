@@ -61,11 +61,6 @@ let gameRuns = 0;
 game();
 
 function game() {
-    alert("Welcome to Rock, Paper, Scissors! You will play 5 rounds against an opponent. Good luck!");
-    do {
-        playRound();
-    } while(gameRuns < 5);
-
     determineWinner();
 }
 
