@@ -32,6 +32,9 @@ function playRound(userSelection) {
     computerSelectionDisplay.textContent = `Opponent chose: ${computerSelection}.`;
     resultsDisplay.textContent = compareSelections(userSelection, computerSelection);
     gameRuns++;
+    if(gameRuns <= 5) {
+        determineWinner();
+    }
 }
 
 function computerPlay() {
@@ -95,21 +98,19 @@ function determineWinner() {
 }
 
 function playAgain(playerWon) {
-    let playAgain;
     if(playerWon == true) {
-        playAgain = confirm("You won! Want to play again?");
+        confirm("You won! Want to play again?");
     }
     else {
-        playAgain = confirm("You lost! Want to play again?");
+        confirm("You lost! Want to play again?");
     }
-
-    if(playAgain) {
-        playerWins = 0;
-        computerWins = 0;
-        gameRuns++;
-        console.clear();
-        game();
-    }
+    playerWins = 0;
+    computerWins = 0;
+    gameRuns = 0;
+    playerSelectionDisplay.textContent = ''
+    computerSelectionDisplay.textContent = '';
+    resultsDisplay.textContent = '';
+    console.clear();
 }
 
 function randomPick(limitOne, limitTwo) {
