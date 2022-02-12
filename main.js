@@ -14,35 +14,21 @@ let resultsDisplay = document.querySelector(".results");
 
 /* Event Listeners */
 
+rockButton.addEventListener('click', () => {
+    playRound('rock');
+});
+paperButton.addEventListener('click', () => {
+    playRound('paper');
+});
+scissorsButton.addEventListener('click', () => {
+    playRound('scissors');
+});
+
 /* Game Logic */
 
-game();
-
-function game() {
-    determineWinner();
-}
-
-function playRound() {
-    let userSelection = userPlay();
-    let computerSelection = computerPlay();
-    compareSelections(userSelection, computerSelection);
+function playRound(userSelection) {
+    console.log(compareSelections(userSelection, computerPlay()));
     gameRuns++;
-}
-
-function userPlay() {
-    let userChoice = selectionPrompt();
-    return userChoice;
-}
-
-function selectionPrompt() {
-    let input = prompt("Rock, Paper, or Scissors?").toLowerCase();
-    if(input == "rock" || input == "paper" || input == "scissors") {
-        return input;
-    }
-    else {
-        alert("Incorrect selection. Please try again.");
-        selectionPrompt();
-    }
 }
 
 function computerPlay() {
