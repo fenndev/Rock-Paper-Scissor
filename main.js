@@ -21,10 +21,8 @@ function game() {
 
 function playRound() {
     let userSelection = userPlay();
-    console.log(`You chose ${userSelection}!`);
     let computerSelection = computerPlay();
-    console.log(`Your opponent chose ${computerSelection}!`);
-    alert(compareSelections(userSelection, computerSelection));
+    compareSelections(userSelection, computerSelection);
     gameRuns++;
 }
 
