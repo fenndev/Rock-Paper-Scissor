@@ -1,6 +1,15 @@
+/* Global Variables */
 let playerWins = 0;
 let computerWins = 0;
 let gameRuns = 0;
+
+/* DOM Objects */
+
+let rockButton = document.querySelector(".rock");
+let paperButton = document.querySelector(".paper");
+let scissorsButton = document.querySelector(".scissors");
+
+/* Game Logic */
 
 game();
 
