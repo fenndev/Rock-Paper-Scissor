@@ -27,7 +27,10 @@ scissorsButton.addEventListener('click', () => {
 /* Game Logic */
 
 function playRound(userSelection) {
-    console.log(compareSelections(userSelection, computerPlay()));
+    let computerSelection = computerPlay();
+    playerSelectionDisplay.textContent = `You chose: ${userSelection}.`
+    computerSelectionDisplay.textContent = `Opponent chose: ${computerSelection}.`;
+    resultsDisplay.textContent = compareSelections(userSelection, computerSelection);
     gameRuns++;
 }
 
