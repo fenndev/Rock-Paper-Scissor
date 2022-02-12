@@ -8,6 +8,9 @@ let gameRuns = 0;
 let rockButton = document.querySelector(".rock");
 let paperButton = document.querySelector(".paper");
 let scissorsButton = document.querySelector(".scissors");
+let playerSelectionDisplay = document.querySelector(".player-selection");
+let computerSelectionDisplay = document.querySelector(".computer-selection");
+let resultsDisplay = document.querySelector(".results");
 
 /* Event Listeners */
 
