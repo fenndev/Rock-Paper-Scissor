@@ -72,7 +72,7 @@ function compareSelections(playerChoice, cpuChoice) {
         switch (cpuChoice) {
             case 'rock':
                 computerWins++;
-                return "You lose! Rock beats Paper.";
+                return "You lose! Rock beats Scissors.";
             case 'paper':
                 playerWins++;
                 return "You won! Scissors beats Paper.";
