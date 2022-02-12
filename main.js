@@ -9,6 +9,8 @@ let rockButton = document.querySelector(".rock");
 let paperButton = document.querySelector(".paper");
 let scissorsButton = document.querySelector(".scissors");
 
+/* Event Listeners */
+
 /* Game Logic */
 
 game();
