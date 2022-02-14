@@ -1,7 +1,7 @@
 /* Global Variables */
 let playerWins = 0;
 let computerWins = 0;
-let gameRuns = 0;
+let points = 0;
 
 /* DOM Objects */
 
@@ -11,7 +11,8 @@ let scissorsButton = document.querySelector(".scissors");
 let playerSelectionDisplay = document.querySelector(".player-selection");
 let computerSelectionDisplay = document.querySelector(".computer-selection");
 let resultsDisplay = document.querySelector(".results");
-let pointsDisplay = document.querySelector(".point-counter")
+let pointsDisplay = document.querySelector(".point-counter");
+let playAgainButton = document.querySelector(".play-again");
 
 /* Event Listeners */
 
@@ -32,8 +33,8 @@ function playRound(userSelection) {
     playerSelectionDisplay.textContent = `You chose: ${userSelection}.`
     computerSelectionDisplay.textContent = `Opponent chose: ${computerSelection}.`;
     resultsDisplay.textContent = compareSelections(userSelection, computerSelection);
-    gameRuns++;
-    if(gameRuns <= 5) {
+    pointsDisplay.textContent = `Points: ${points}`;
+    if(points == 5) {
         determineWinner();
     }
 }
@@ -59,14 +60,14 @@ function compareSelections(playerChoice, cpuChoice) {
                 computerWins++;
                 return "You lose! Paper beats Rock.";
             default:
-                playerWins++;
+                points++;
                 return "You won! Rock beats Scissors.";
         }
     }
     else if(playerChoice == 'paper') {
         switch (cpuChoice) {
             case 'rock':
-                playerWins++;
+                points++;
                 return "You won! Paper beats Rock.";
             case 'paper':
                 return "It was a tie!";
@@ -81,7 +82,7 @@ function compareSelections(playerChoice, cpuChoice) {
                 computerWins++;
                 return "You lose! Rock beats Scissors.";
             case 'paper':
-                playerWins++;
+                points++;
                 return "You won! Scissors beats Paper.";
             default:
                 return "It was a tie!";
@@ -90,7 +91,7 @@ function compareSelections(playerChoice, cpuChoice) {
 }
 
 function determineWinner() {
-    if(playerWins > computerWins) {
+    if(points > computerWins) {
         playAgain(true);
         }
     else {
@@ -99,19 +100,23 @@ function determineWinner() {
 }
 
 function playAgain(playerWon) {
-    if(playerWon == true) {
-        confirm("You won! Want to play again?");
-    }
-    else {
-        confirm("You lost! Want to play again?");
-    }
-    playerWins = 0;
+    changeDisplay(playerWon);
+    points = 0;
     computerWins = 0;
-    gameRuns = 0;
     playerSelectionDisplay.textContent = ''
     computerSelectionDisplay.textContent = '';
     resultsDisplay.textContent = '';
+    pointsDisplay.textContent = '';
     console.clear();
+}
+
+function changeDisplay(playerWon) {
+    if(playerWon == true) {
+        resultsDisplay.textContent = "You won! Want to play again?";
+    }
+    else {
+        resultsDisplay.textContent = "You lost! Want to play again?";
+    }
 }
 
 function randomPick(limitOne, limitTwo) {
