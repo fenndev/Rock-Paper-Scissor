@@ -123,9 +123,9 @@ function changeDisplay(playerWon) {
 function resetGame() {
     points = 0;
     computerWins = 0;
-    playerSelectionDisplay.textContent = null;
-    computerSelectionDisplay.textContent = null;
-    resultsDisplay.textContent = null;
+    playerSelectionDisplay.textContent = '';
+    computerSelectionDisplay.textContent = '';
+    resultsDisplay.textContent = '';
     pointsDisplay.textContent = `Points: ${points}`;
     playAgainButton.classList.add("hidden");
     console.clear();
