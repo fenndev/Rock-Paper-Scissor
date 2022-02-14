@@ -26,9 +26,16 @@ scissorsButton.addEventListener('click', () => {
     playRound('scissors');
 });
 
+playAgainButton.addEventListener('click', () => {
+    resetGame();
+})
+
 /* Game Logic */
 
 function playRound(userSelection) {
+    if(!playAgainButton.classList.contains("hidden")) {
+        return;
+    }
     let computerSelection = computerPlay();
     playerSelectionDisplay.textContent = `You chose: ${userSelection}.`
     computerSelectionDisplay.textContent = `Opponent chose: ${computerSelection}.`;
@@ -101,13 +108,6 @@ function determineWinner() {
 
 function playAgain(playerWon) {
     changeDisplay(playerWon);
-    points = 0;
-    computerWins = 0;
-    playerSelectionDisplay.textContent = ''
-    computerSelectionDisplay.textContent = '';
-    resultsDisplay.textContent = '';
-    pointsDisplay.textContent = '';
-    console.clear();
 }
 
 function changeDisplay(playerWon) {
@@ -117,6 +117,18 @@ function changeDisplay(playerWon) {
     else {
         resultsDisplay.textContent = "You lost! Want to play again?";
     }
+    playAgainButton.classList.remove("hidden");
+}
+
+function resetGame() {
+    points = 0;
+    computerWins = 0;
+    playerSelectionDisplay.textContent = null;
+    computerSelectionDisplay.textContent = null;
+    resultsDisplay.textContent = null;
+    pointsDisplay.textContent = `Points: ${points}`;
+    playAgainButton.classList.add("hidden");
+    console.clear();
 }
 
 function randomPick(limitOne, limitTwo) {
